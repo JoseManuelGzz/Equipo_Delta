@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Agregar Candidato</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body onload="addEstados()">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Human Capital System</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Agregar <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="agregarCandidato.html">Candidato</a>
+                            </li>
+                            <li>
+                                <a href="agregarEntrevista.html">Entrevista</a>
+                            </li>
+                            <li>
+                                <a href="agregarEmpleado.html">Empleado</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Modificar <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="modificarC.html">Candidato</a>
+                            </li>
+                            <li>
+                                <a href="modificarEnt.html">Entrevista</a>
+                            </li>
+                            <li>
+                                <a href="modificarE.html">Empleado</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Eliminar <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="eliminarC.html">Candidato</a>
+                            </li>
+                            <li>
+                                <a href="eliminarEnt.html">Entrevista</a>
+                            </li>
+                            <li>
+                                <a href="eliminarE.html">Empleado</a>
+                            </li>
+                        </ul>
+                    </li>
+                     <li>
+                        <a href="reportes.html">Reportes</a>
+                    </li>
+                    <li>
+                        <a href="acercade.html">Acerca de</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+	<br><br>
+    <div style="background: #B6D7A8;"> 
+		<div class="container">
+			<h3>Agregar</h3>
+			<h3>Candidato</h3><br>
+		</div>
+    </div>
+	<br>
+    <div class="container">
+    <form id="agregarCandidato" name="agregaCandidato" method="post">
+    	<div class="row">
+    		<div class="col-md-4">
+    		<h4>Datos personales</h4><br>
+    			<div class="form-group">
+    				<p>Nombre completo</p>
+    				<input type="text" name="nombre" class="form-control">
+    			</div>
+    			<div class="form-group">
+    				<p>E-mail</p>
+    				<input type="email" name="correo" class="form-control">
+    			</div>
+    			<div class="form-group">
+    				<p>Teléfono</p>
+    				<input type="text" name="telefono" class="form-control">
+    			</div>
+    			<br>
+    		</div>
+    		<div class="col-md-1"></div>
+			<div class="col-md-4">
+				<h4>Dirección</h4><br>
+    			<div class="form-group">
+    				<p>Calle</p>
+    				<input type="text" name="calle" class="form-control">
+    			</div>
+    			<div class="form-group">
+    				<p>Ciudad</p>
+    				<input type="text" name="ciudad" class="form-control">
+    			</div>
+    			<div class="form-group">
+    				<p>Estado</p>
+    				<select id="estado" name="estado" class="form-control"></select>
+    			</div>
+    			<br>
+			</div>
+    	</div> <!-- End row -->
+    	<div class="row">
+    		<div class="col-md-4">
+    		<h4>Estudios universitarios</h4><br>
+    			<div class="form-group">
+    				<p>Universidad</p>
+    				<input type="text" name="universidad" class="form-control">
+    			</div>
+    			<div class="form-group">
+    				<p>Título</p>
+    				<input type="email" name="titulo" class="form-control">
+    			</div>
+    			<div class="form-group">
+    				<p>Año de obtención</p>
+    				<input type="month" name="yearobt" class="form-control">
+    			</div>
+    			<br>
+    		</div>
+    		<div class="col-md-1"></div>
+    		<div class="col-md-4">
+    			<div class="form-group">
+    				<br><br><br>
+    				<p>Nivel</p>
+    				<select class="form-control" name="nivel">
+    					<option>Profesional</option>
+    					<option>Posgrado</option>
+    					<option>Maestría</option>
+						<option>Doctorado</option>
+    				</select>
+    			</div>
+    			<div class="form-group">
+    				<p>Calificación</p>
+    				<input type="number" name="calificación" min="0" max="100" class="form-control">
+    			</div>
+    			
+    			<br>
+    		</div>
+    		<div class="col-md-12" name="addTitulos"></div>
+    		<div class="col-md-4">
+    			<div class="form-group">
+    				<p>Presiona para agrega otro título</p>
+    				<input type="button" name="addTitulo" onclick="addTitulo()" value="+" class="btn btn-default">
+    			</div>
+    		</div>
+    	</div> <!-- End row -->
+    	<div class="row">
+    		<div class="col-md-4">
+    			<h4>Certificados</h4><br>
+    			<div class="form-group">
+    				<p>Título</p>
+    				<input type="text" name="CertTitulo" class="form-control">
+    			</div>
+    			<div class="form-group">
+    				<p>Certificadora</p>
+    				<input type="text" name="certificadora" class="form-control">
+    			</div>
+    		</div>
+    		<div class="col-md-1"></div>
+    		<div class="col-md-4">
+    			<br><br><br>
+    			<div class="form-group">
+    				<p>Año de obtención</p>
+    				<input type="month" name="yearCert" class="form-control">
+    			</div>
+    			<div class="form-group">
+    				<p>Nivel</p>
+    				<input type="text" name="nivelCert" class="form-control">
+    			</div>
+    		</div>
+    		<div class="col-md-12" name="addCertificados"></div>
+    		<div class="col-md-4">
+    			<div class="form-group">
+    				<p>Presiona para agrega otro certificado</p>
+    				<input type="button" name="addCertificado" onclick="addCertificado()" value="+" class="btn btn-default">
+    			</div>
+    		</div>
+    	</div> <!-- End row -->
+    	<div class="row">
+    		<div class="col-md-12">
+	    		<div class="col-md-4">
+	    			<h4>Trabajo anterior</h4><br>
+	    			<div class="form-group">
+	    				<p>Compañía</p>
+	    				<input type="text" name="compañia" class="form-control">
+	    			</div>
+	    			<div class="form-group">
+	    				<p>Puesto</p>
+	    				<input type="text" name="puesto" class="form-control">
+	    			</div>
+	    			<div class="form-group">
+	    				<p>Salario</p>
+	    				<input type="text" name="salario" class="form-control">
+	    			</div>
+	    		</div>
+	    		<div class="col-md-1"></div>
+	    		<div class="col-md-4">
+	    			<br><br><br>
+	    			<div class="form-group">
+	    				<p>Fecha de entrada</p>
+	    				<input type="date" name="fechaEntrada" class="form-control">
+	    			</div>
+	    			<div class="form-group">
+	    				<p>Puesto</p>
+	    				<input type="text" name="fechaSalida" class="form-control">
+	    			</div>
+	    			<div class="form-group">
+	    				<p>Descripción del puesto</p>
+	    				<textarea class="form-control" rows="4"></textarea>
+	    			</div>
+	    		</div>
+    		</div>
+    	</div> <!-- End row -->
+    	<div class="row">
+    		<div class="col-md-4">
+    			<h4>Tecnologías utilizadas</h4><br>
+    			<div class="form-group">
+	    			<p>Herramientas/tecnológias</p>
+	    			<input type="text" name="tecnologias" class="form-control">
+	    		</div>
+	    		<div class="form-group">
+	    			<p>Presiona para agregar otra herramienta</p>
+	    			<input type="button" name="addHerramienta" onclick="addHerramienta()" value="+" class="btn btn-default">
+	    		</div>
+    		</div>
+    		<div class="col-md-1"></div>
+    		<div class="col-md-4">
+    			<h4>Hobbys</h4><br>
+	    		<div class="form-group">
+		    		<p>Hobby</p>
+		    		<input type="text" name="hobby" class="form-control">
+		    	</div>
+		    	<div class="form-group">
+		    			<p>Presiona para agregar otro hobby</p>
+		    			<input type="button" name="addHobby" onclick="addHobby()" value="+" class="btn btn-default">
+		    	</div>
+		    </div>
+    	</div> <!-- End row -->
+    	<br>
+    	<div class="row">
+    		<div class="form-group">
+    			<input type="submit" class="btn btn-default" name="submit" value="Registrar">
+    		</div>
+    	</div>
+    </form>
+    </div>
+    <div class="container">
+        <hr>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Human Capital 2015</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+	<!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- form JS -->
+    <script src="js/formFunctions.js"></script>
+</body>
+</html>
